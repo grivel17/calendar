@@ -1,0 +1,298 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*  */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: goldenrod;
+  padding: 50px 50px;
+  margin: 40px auto;
+  width: 40%;
+  border-radius: 20px;
+  box-shadow: 5px 5px 23px -3px #545454;
+  min-width: 450px;
+
+}
+.appTitle {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px;
+}
+
+.wetherInfo {
+  text-align: center;
+  width: 400px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: teal;
+  margin-top: 20px;
+}
+
+.calendarDayContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(95, 158, 160, 0.5);
+  width: 400px;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.dayTitle, .eventsContainer {
+  background-color: rgba(210, 105, 30, 0.5);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.dayTitle {
+  font-weight: 600;
+  background-color: rgba(210, 105, 30, 0.9);
+}
+
+.eventsContainer {
+  background-color: transparent;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.arrowButton {
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+}
+
+.arrowButton:hover{
+  cursor: pointer;
+}
+
+.inputText, .inputTime {
+  background-color: rgba(0, 128, 128, 0.6);
+  width: 300px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  color: whitesmoke;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+.inputText:focus, .inputTime:focus {
+  padding: 12px;
+  box-shadow: 5px 5px 15px -3px #545454;
+  border: 1px solid rgba(0, 128, 128, 1);
+}
+
+.inputTime {
+  padding: 8px;
+  width: 47%;
+  margin-right: 3px;
+}
+
+.inputTime:focus {
+  padding: 8px;
+}
+
+.eventButton, .eventButtonAdd{
+  background-color: teal;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 25px;
+  margin-top: 20px;
+}
+
+.eventButtonAdd {
+  background-color: chocolate;
+}
+
+.eventItem, .eventItemNone, .eventItemEdit {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+  background-color: yellowgreen;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.eventItem {
+  background-color: rgba(0, 128, 128, .6);
+  padding: 0 15px;
+}
+
+.eventItemEdit {
+  background-color: rgba(210, 105, 30, .5);
+}
+
+.eventTime {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  height: 30px;
+  width: 70%;
+}
+
+.eventTitle, .eventTitleEdit{
+  background-color: rgba(0, 128, 128, 1);
+  margin: 15px 0;
+  line-height: 1.5;
+  font-size: 14px;
+  border-radius: 5px;
+  width: 100%;
+  padding: 5px;
+}
+
+.eventTitleEdit {
+  background-color: rgba(210, 105, 30, .7);
+}
+
+.eventEdit{
+  float: right;
+  color: rgba(0, 0, 255, .4);
+  font-size: 18px;
+}
+
+.eventDelete {
+  display: flex;
+  width: 30%;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 18px;
+  color: chocolate;
+}
+
+.eventDelete:hover, .eventEdit:hover {
+  font-size: 20px; 
+  cursor: pointer;
+}
+
+.monthTitle {
+  background-color: rgba(0, 128, 128, 0.7);
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+button {
+  color: aliceblue;
+  padding: 20px;
+}
+
+table, td, th {
+  box-sizing: border-box;
+}
+
+
+table {
+  table-layout: auto;
+  border-collapse: collapse;
+  empty-cells: hide;
+}
+
+td, th {
+  background-color: cadetblue;
+  color: aliceblue;
+  border: 5px solid goldenrod;
+  border-radius: 15px;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+}
+
+.td-header {
+  background-color: chocolate;
+}
+
+
+.hasEvent {
+  background-color: chocolate;
+  position: relative;
+}
+
+.hasEventDate{
+    display: flex;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 128, 128, .6);
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    margin: 3px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.hasEventDat {
+  position: absolute;
+  bottom: 0;
+  margin: 3px;
+  font-size: 15px;
+}
+
+.editModeHide {
+  display: none;
+}
+
+/**/
+
+input[type="time"]::-webkit-calendar-picker-indicator{
+  filter: invert(1);
+  }
