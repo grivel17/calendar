@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+#PROJEKT KALENDARZA W REACT JS 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Poniższy projekt zawiera w pełni działający kalendarz jednoroczny. Kalendarz został zbudowany przy użyciu narzędzi React JS. W kalendarzu nie użyłem żadnych bibliotek zewnętrznych. Wszystkie komponenty i funkcje zbudowałem od „zera”. Kalendarz nie zawiera warstwy back-endowej, ale pozwala przechowywać dane w localstorage przeglądarki.
 
-## Available Scripts
+! – warstwa wizualna kalendarza została ograniczona do minimum. Głównym celem pracy nad kalendarzem było stworzenie jego mechaniki nie zaś stylistyki czy UX.
+! – wersja produkcyjna kalendarza dostępna jest pod linkiem [https://ins.stronazen.pl/]
 
-In the project directory, you can run:
+ #PODSTAWOWE FUNKCJONALNOŚCI
 
-### `npm start`
+- kalendarz pokazuje aktualną temperaturę dla danego dnia. Informacje pobierane są z API jednego z serwisów pogodowych.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- podstawowym widokiem jest widok dnia. Ładowany jest aktualny dzień. Moduł dnia pozwala dodawać nowe wydarzenia wraz z godzinami ich realizacji. Każde z    wydarzeń można edytować lub usunąć. Wydarzenia są sortowane zgodnie z godziną ich wykonania.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- widok dnia pozwala za pomocą klawiszy przewijać do następnych lub poprzednich dni i zarządzać ich wydarzeniami. Ostatni lub pierwszy dzień miesiąca pozwala przejść do kolejnego miesiąca lub dnia.   
 
-### `npm test`
+- drugim widokiem jest kalendarz miesięczny. Ten wyróżnia dni, w których zaplanowaliśmy zadania oraz podaje ich liczbę wydarzeń w danym dniu. Pozwala poruszać się pomiędzy poszczególnymi miesiącami od stycznia do grudnia bieżącego roku.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- z poziomu widoku kalendarza miesięcznego możemy przejść do dowolnego dnia w danym miesiącu np. celem dokonania jego edycji.
 
-### `npm run build`
+#BUDOWA
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- kalendarz składa się z 4 podstawowych komponentów reprezentujących: pełny widok kalendarza dostępny dla użytkownika, komponent kalendarza miesięcznego oraz komponenty widoku dnia i budowy nowego wydarzenia.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- głównym komponentem jest Calendar.js. Za pomocą hooków useState przechowuje wszystkie najważniejsze stany i informacje. Z tego poziomu wartość stanów zmiennych jest dystrybuowana do komponentów wykorzystanych niżej w strukturze. Jednocześnie elementy z niższych poziomów przesyłają aktualizację stanów do głównego komponentu dzięki czemu możliwa jest natychmiastowa aktualizacja wartości w innych komponentach będących dziećmi komponentu głównego, które wykorzystują wartości przechowywane w komponencie głównym.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- generując widok kalendarza, po załadowaniu skryptu, aplikacja sprawdza w pierwszej kolejności czy localstorage przeglądarki zawiera wydarzenia. Jeśli tak są one przekazywane do zmiennej zawierającej aktualny stan wydarzeń w kalendarzu. W przeciwnym razie ładowana jest lista zawierająca 12 pustych obiektów.
 
-### `npm run eject`
+- każdy obiekt w liście reprezentuje pojedynczy miesiąc (przypominam, że kalendarz obejmuje aktualny rok).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- informacje w obiektach – miesiącach są porządkowane za pomocą par klucz wartość, gdzie klucz jest odpowiednikiem dnia miesiąca. Wartością klucza – dnia jest zawsze tablica, będąca zbiorem obiektów – wydarzeń dla poszczególnego dnia.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- każdy obiekt – dzień przechowuje takie informacje jak: opis wydarzenia („title:”), czas jego rozpoczęcia i zakończenia oraz numer id. Obiekty dni są sortowane według daty rozpoczęcia.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#INSTALACJA
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- kalendarz można uruchomić w środowisku lokalnym. Wystarczy skopiować powyższe repozytorium. Następnie aplikację uruchamiamy z poziomu terminala za pomocą komendy npm start. 
