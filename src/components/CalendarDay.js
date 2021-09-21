@@ -80,7 +80,7 @@ export default function CalendarDay({selectedDay,
                     <div className="eventsContainer">
 
                         {eventsForToday !== undefined ? 
-
+                           
                             eventsForToday.sort((item1, item2) => item1.startTime > item2.startTime ? 1 : -1).map((e) => 
                             
                             <div className={editMode ? "eventItemEdit" : "eventItem"} key={e.id}>

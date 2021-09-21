@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import Weather from './Weather';
 import CalendarMonth from './CalendarMonth';
 import CalendarDay from './CalendarDay';
@@ -12,14 +12,20 @@ export default function Calendar() {
     const currentYear = new Date().getFullYear().toString();
     const initialYearArr = [{}, {}, {},  {}, {}, {}, {}, {}, {}, {}, {}, {}];
     
+ 
+  
+
     const [eventsMonthly, setEventsMonthly] = useState(()=>{
-        const savedEvents = localStorage.getItem(currentYear);
-        if(currentYear){
-            return JSON.parse(savedEvents)
-        } else {
-            return initialYearArr; 
+            const eventsMonthly= localStorage.getItem('events');
+            if(eventsMonthly !== null){
+                return JSON.parse(eventsMonthly)
+            } else {
+                return initialYearArr; 
+            }
         }
-    });
+    );
+        
+    
 
     const [selectedDay, setSelectedDay] = useState(currentDay); 
 
@@ -33,8 +39,8 @@ export default function Calendar() {
     const daysInPreviousMonth = new Date(2021, selectedMonth, 0).getDate();
    
     useEffect(() => {
-        localStorage.setItem(currentYear, JSON.stringify(eventsMonthly))
-    }, [eventsMonthly])
+        localStorage.setItem("events", JSON.stringify(eventsMonthly))
+    })
 
 
     return (
@@ -81,7 +87,7 @@ export default function Calendar() {
                 nextMonth={setSelectedMonth}
                 previousMonth={setSelectedMonth}
             />
-           <a href="https://github.com/grivel17/calendar" target="_blank">Odwiedź moje konto na GitHub. Zobacza pliki dla tej aplikacji</a>
+           <a href="https://github.com/grivel17/calendar" target="_blank" rel="noreferrer">Odwiedź moje konto na GitHub. Zobacza pliki dla tej aplikacji</a>
         </div>
     )
 }
