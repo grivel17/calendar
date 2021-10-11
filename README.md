@@ -1,11 +1,11 @@
-#PROJEKT KALENDARZA W REACT JS 
+## PROJEKT KALENDARZA W REACT JS 
 
 Poniższy projekt zawiera w pełni działający kalendarz jednoroczny. Kalendarz został zbudowany przy użyciu narzędzi React JS. W kalendarzu nie użyłem żadnych bibliotek zewnętrznych. Wszystkie komponenty i funkcje zbudowałem od „zera”. Kalendarz nie zawiera warstwy back-endowej, ale pozwala przechowywać dane w localstorage przeglądarki.
 
-! – warstwa wizualna kalendarza została ograniczona do minimum. Głównym celem pracy nad kalendarzem było stworzenie jego mechaniki nie zaś stylistyki czy UX.
-! – wersja produkcyjna kalendarza dostępna jest pod linkiem [https://ins.stronazen.pl/]
+– warstwa wizualna kalendarza została ograniczona do minimum. Głównym celem pracy nad kalendarzem było stworzenie jego mechaniki nie zaś stylistyki czy UX.
+– wersja produkcyjna kalendarza dostępna jest pod linkiem [https://ins.stronazen.pl/]
 
- #PODSTAWOWE FUNKCJONALNOŚCI
+ ## PODSTAWOWE FUNKCJONALNOŚCI
 
 - kalendarz pokazuje aktualną temperaturę dla danego dnia. Informacje pobierane są z API jednego z serwisów pogodowych.
 
@@ -17,7 +17,7 @@ Poniższy projekt zawiera w pełni działający kalendarz jednoroczny. Kalendarz
 
 - z poziomu widoku kalendarza miesięcznego możemy przejść do dowolnego dnia w danym miesiącu np. celem dokonania jego edycji.
 
-#BUDOWA
+## BUDOWA
 
 - kalendarz składa się z 4 podstawowych komponentów reprezentujących: pełny widok kalendarza dostępny dla użytkownika, komponent kalendarza miesięcznego oraz komponenty widoku dnia i budowy nowego wydarzenia.
 
@@ -31,6 +31,7 @@ Poniższy projekt zawiera w pełni działający kalendarz jednoroczny. Kalendarz
 
 - każdy obiekt – dzień przechowuje takie informacje jak: opis wydarzenia („title:”), czas jego rozpoczęcia i zakończenia oraz numer id. Obiekty dni są sortowane według daty rozpoczęcia.
 
-#INSTALACJA
+## INSTALACJA
 
 - kalendarz można uruchomić w środowisku lokalnym. Wystarczy skopiować powyższe repozytorium. Następnie aplikację uruchamiamy z poziomu terminala za pomocą komendy npm start. 
+- aplikacja wymaga dodania klucza API serwisu openweathermap.org/api.
